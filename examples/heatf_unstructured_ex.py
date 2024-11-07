@@ -1,4 +1,5 @@
 """An example of calling a Fortran BMI through Cython."""
+
 import numpy as np
 from pymt_heatf import HeatModelF
 
