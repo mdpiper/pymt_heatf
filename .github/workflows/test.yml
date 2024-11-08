@@ -79,6 +79,7 @@ jobs:
             cmake
             pkg-config
             cxx-compiler
+            fortran-compiler
             bmi-fortran
           init-shell: >-
             powershell
