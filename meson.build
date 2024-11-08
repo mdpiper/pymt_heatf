@@ -21,9 +21,12 @@ incs = include_directories(
 )
 
 deps = [
+    # fc.find_library('bmif'),
+    # fc.find_library('heatf'),
+    # fc.find_library('bmiheatf'),
     dependency('bmif', method: 'pkg-config'),
-    fc.find_library('heatf'),
-    fc.find_library('bmiheatf'),
+    dependency('heatf', method: 'pkg-config'),
+    dependency('bmiheatf', method: 'pkg-config'),
 ]
 
 srcs = [
