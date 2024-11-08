@@ -43,10 +43,13 @@ jobs:
         run: |
           pip install --no-build-isolation --editable .
 
-      - name: Test BMI
+      - name: Test import
         run: |
           python -c 'import pymt_heatf'
-          bmi-test pymt_heatf.bmi:HeatModelF --config-file=examples/test.cfg --root-dir=examples -vvv
+
+      - name: Test BMI
+        run: |
+          make test
 
       - name: Run examples
         working-directory: ${{ github.workspace }}/examples
