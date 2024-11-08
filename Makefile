@@ -64,7 +64,7 @@ pretty:
 	black . --check
 
 test: ## run tests quickly with the default Python
-	bmi-test pymt_heatf.bmi:HeatModelF -vvv
+	bmi-test pymt_heatf.bmi:HeatModelF --config-file=${PWD}/examples/test.cfg --root-dir=examples -vvv
 
 test-all: ## run tests on every Python version with tox
 	tox
@@ -83,4 +83,5 @@ dist: clean ## builds source and wheel package
 	ls -l dist
 
 install: clean ## install the package to the active Python's site-packages
+	pip install meson meson-python ninja
 	pip install --no-build-isolation --editable .
