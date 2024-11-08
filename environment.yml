@@ -7,11 +7,12 @@ dependencies:
   - pip
   - make
   - cmake
+  - pkg-config
   - bmi-fortran
   - fortran-compiler
   - c-compiler
-  - cython
-  - meson-python
+  # - cython
+  # - meson-python
   - numpy
   - bmi-tester >=0.5.5
-  - pymt >=1.3
+  - pymt >=1.3.2
