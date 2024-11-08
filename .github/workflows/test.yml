@@ -79,6 +79,8 @@ jobs:
             cmake
             pkg-config
             cxx-compiler
+            python =3
+            pip
           init-shell: >-
             powershell
 
