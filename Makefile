@@ -83,5 +83,6 @@ dist: clean ## builds source and wheel package
 	ls -l dist
 
 install: clean ## install the package to the active Python's site-packages
-	pip install meson meson-python ninja
-	pip install --no-build-isolation --editable .
+	# pip install meson meson-python ninja
+	# pip install --no-build-isolation --editable .
+	pip install .[dev]

@@ -41,9 +41,10 @@ jobs:
 
       - name: Build and install package
         run: |
-          pip install --no-build-isolation --editable .
+          make install
 
       - name: Test import
+        working-directory: ${{ github.workspace }}/examples
         run: |
           python -c 'import pymt_heatf'
 
