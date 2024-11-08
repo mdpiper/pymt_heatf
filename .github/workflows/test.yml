@@ -79,10 +79,23 @@ jobs:
             cmake
             pkg-config
             cxx-compiler
-            fortran-compiler
-            bmi-fortran
           init-shell: >-
             powershell
+
+      # The Fortran conda compiler doesn't seem to work on Windows in Actions.
+      # Instead, use the gfortran installed by chocolately. However, we then
+      # can't use the bmi-fortran package from conda-forge because it's not
+      # ABI-compatible. So, build bmi-fortran locally, This is a hack
+      # workaround.
+      - name: Build the bmi-fortran specification locally
+        run: |
+            curl -o bmi-fortran.zip -L https://github.com/csdms/bmi-fortran/archive/refs/heads/master.zip
+            unzip bmi-fortran.zip
+            cd bmi-fortran-master
+            mkdir build && cd build
+            cmake .. -G "NMake Makefiles" -DCMAKE_INSTALL_PREFIX="${{ env.LIBRARY_PREFIX }}" -DCMAKE_BUILD_TYPE=Release
+            cmake --build . --target install --config Release
+            cd ${{ github.workspace }}
 
       - name: Make build directory for cmake and meson
         run: cmake -E make_directory build
