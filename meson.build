@@ -27,6 +27,7 @@ deps = [
     dependency('bmif', method: 'pkg-config'),
     dependency('heatf', method: 'pkg-config'),
     dependency('bmiheatf', method: 'pkg-config'),
+    py.dependency(),
 ]
 
 srcs = [
