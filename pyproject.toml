@@ -66,6 +66,9 @@ changelog = "https://github.com/mdpiper/pymt_heatf/blob/main/CHANGES.rst"
 [project.entry-points."pymt.plugins"]
 HeatModelF = "pymt_heatf.bmi:HeatModelF"
 
+[tool.meson-python.args]
+install = ['--tags=runtime,python-runtime,tests,devel']
+
 [tool.ruff]
 exclude = ["docs"]
 line-length = 88
